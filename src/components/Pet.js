@@ -1,15 +1,14 @@
 import React from 'react';
 
 class Pet extends React.Component {
-  constructor() {
-    super();
-  }
-      const {pet: {name, type, age, weight, gender}, isAdopted} = this.props
-  render() {
+  handleAdoptPet = () => this.props.onAdoptPet(this.props.pet.id)
+    
+  render() 
+     const {pet: {name, type, age, weight, gender}, isAdopted} = this.props;
     return (
       <div className="card">
         <div className="content">
-          <a className="header">Pet Name: {name} (gender: ♂ or ♀)</a>
+          <a className="header">Pet Name: {name} {gender === 'male'? '♂' : '♀'}</a>
           <div className="meta">
             <span className="date">Pet type: {type}</span>
           </div>
@@ -19,8 +18,11 @@ class Pet extends React.Component {
           </div>
         </div>
         <div className="extra content">
-          <button className="ui primary button">Adopt pet</button>
+          {isAdopted ?
           <button className="ui disabled button">Already adopted</button>
+          :
+          <button className="ui primary button" onClick={this.handleAdoptPet}>Adopt pet</button>
+        }
         </div>
       </div>
     );
