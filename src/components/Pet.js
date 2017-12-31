@@ -2,9 +2,9 @@ import React from 'react';
 
 class Pet extends React.Component {
   handleAdoptPet = () => this.props.onAdoptPet(this.props.pet.id)
-    
-  render() 
-     const {pet: {name, type, age, weight, gender}, isAdopted} = this.props;
+
+  render() {
+     const { pet: {name, type, age, weight, gender}, isAdopted } = this.props;
     return (
       <div className="card">
         <div className="content">
