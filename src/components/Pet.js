@@ -4,7 +4,7 @@ class Pet extends React.Component {
   constructor() {
     super();
   }
-      const {name, type, age, weigh} = this.props
+      const {pet: {name, type, age, weight, gender}, isAdopted} = this.props
   render() {
     return (
       <div className="card">
